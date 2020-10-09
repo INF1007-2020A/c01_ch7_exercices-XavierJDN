@@ -5,7 +5,7 @@
 from math import pi
 import turtle
 import time
-import ch6.py
+from ch6 import histogram
 
 # TODO: Définissez vos fonction ici
 def ellipse(M: int, a: int = 1, b: int = 2, c: int = 3) -> tuple:
@@ -13,7 +13,12 @@ def ellipse(M: int, a: int = 1, b: int = 2, c: int = 3) -> tuple:
     m = v / M
     return v, m
 
-def 
+def sort(histogram: dict, sequence: str = "feefgg") -> tuple:
+    dict_squence ={}
+    list_letter = sorted(histogram(sequence).items(), reverse=True, key = lambda x: x[1])
+    for i in range(len(list_letter)):
+        dict_squence[list_letter[i][0]] = list_letter[i][1]
+    return list_letter[0][0], dict_squence[list_letter[0][0]]
 def trees(length_branch: int):
 
     if length_branch <= 10:
@@ -67,10 +72,11 @@ if __name__ == '__main__':
     # turtle.left(90)
     # trees(100)
     # time.sleep(10)
-    adn = input("Donez un adn: ")
-    match_sequence, sequence = proportion(adn)
-    # print(f" la chaine de charatere est : {is_adn(adn)} un adn ")
-    print(f"Il y a {round(match_sequence * 100, 2)} % de {sequence}")
-    # print(adn_str(is_adn))
-
+    # adn = input("Donez un adn: ")
+    # match_sequence, sequence = proportion(adn)
+    # # print(f" la chaine de charatere est : {is_adn(adn)} un adn ")
+    # print(f"Il y a {round(match_sequence * 100, 2)} % de {sequence}")
+    # # print(adn_str(is_adn))
     
+    sequence = "argrgthy"
+    print(sort(histogram))
